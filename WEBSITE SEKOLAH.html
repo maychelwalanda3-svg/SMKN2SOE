@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMKN 2 SOE - Portal Prestasi</title>
+    <style>
+        :root {
+            --primary: #1a2a6c;
+            --secondary: #b21f1f;
+            --accent: #fdbb2d;
+            --light: #f4f7f6;
+            --dark: #2d3436;
+            --gold: #d4af37;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { background-color: var(--light); color: var(--dark); overflow-x: hidden; }
+
+        /* Navigation Bar */
+        nav {
+            background: rgba(26, 42, 108, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        nav a:hover { background: var(--accent); color: var(--primary); }
+
+        /* Header Section */
+        header {
+            margin-top: 60px;
+            text-align: center;
+            padding: 50px 20px;
+            background: white;
+        }
+
+        .school-name { font-size: 2.5rem; color: var(--primary); font-weight: 800; margin-bottom: 20px; }
+        
+        .hero-img { 
+            width: 100%; 
+            max-width: 1000px; 
+            height: 400px; 
+            border-radius: 20px; 
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Sections Logic */
+        section {
+            display: none;
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 80vh;
+        }
+
+        section:target { display: block; animation: slideIn 0.6s ease-out; }
+        #home { display: block; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        h2 { text-align: center; font-size: 2.2rem; margin-bottom: 40px; color: var(--primary); position: relative; }
+        h2::after { content: ''; width: 80px; height: 4px; background: var(--accent); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+
+        .card-body { padding: 20px; }
+        
+        /* Prestasi Styling */
+        .achievement-list { list-style: none; }
+        .achievement-item {
+            background: white;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .medal-icon { font-size: 2rem; }
+
+        .badge-akreditasi {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        footer { background: var(--primary); color: white; text-align: center; padding: 30px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Beranda</a>
+        <a href="#jurusan">Jurusan</a>
+        <a href="#fasilitas">Fasilitas</a>
+        <a href="#prestasi" style="background: var(--gold); color: black; font-weight: bold;">🏆 Prestasi</a>
+    </nav>
+
+    <header>
+        <h1 class="school-name">SMKN 2 SOE</h1>
+    </header>
+
+    <!-- HALAMAN BERANDA -->
+    <section id="home">
+        <h2>Profil Singkat</h2>
+        <div style="background: var(--primary); color: white; padding: 40px; border-radius: 20px; text-align: center; margin-bottom: 30px;">
+            <div class="badge-akreditasi">TERAKREDITASI A</div>
+            <h3>Sekolah Pusat Keunggulan</h3>
+            <p style="margin: 15px 0;">SMKN 2 SOE terus berinovasi dalam mencetak generasi muda yang unggul dan berbakat</p>
+        </div>
+        <div style="text-align: center; font-style: italic; color: #555;">
+            "Kesuksesan hari ini adalah persiapan untuk tantangan hari esok."
+        </div>
+    </section>
+
+    <!-- HALAMAN PRESTASI (BARU) -->
+    <section id="prestasi">
+        <h2>Prestasi Sekolah</h2>
+        
+        <h3 style="margin-bottom: 20px; color: var(--secondary);">🏅 Bidang Olahraga</h3>
+        <div class="achievement-list">
+            <div class="achievement-item">
+                <span class="medal-icon">🥇</span>
+                <div>
+                    <strong>Juara 1 Turnamen Bola Voli Bupati Cup I 2025</strong>
+                    <p>Prestasi tertinggi se-Kabupaten Timor Tengah Selatan.</p>
+                </div>
+            </div>
+            <div class="achievement-item">
+                <span class="medal-icon">🥇</span>
+                <div>
+                    <strong>Juara 1 Lukas Banu Cup III 2025</strong>
+                    <p>Menang telak 3-0 melawan juara bertahan di laga final.</p>
+                </div>
+            </div>
+            <div class="achievement-item">
+                <span class="medal-icon">🥇</span>
+                <div>
+                    <strong>Juara 1 Tournament Bola Voli Bung Karno Cup 1</strong>
+                    <p>Memperkuat dominasi voli SMKN 2 SOE di TTS tahun 2025.</p>
+                </div>
+            </div>
+            <div class="achievement-item">
+                <span class="medal-icon">🏀</span>
+                <div>
+                    <strong>Partisipan Honda DBL 2024-2025</strong>
+                    <p>Berkompetisi di ajang basket bergengsi East Nusa Tenggara.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 40px; margin-bottom: 20px; color: var(--primary);">📚 Akademik & Keunggulan</h3>
+        <div class="grid">
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge-akreditasi">Prestasi Nasional</span>
+                    <h4>Juara 2 FL2SN Nasional</h4>
+                    <p>Membawa nama harum sekolah di tingkat nasional dalam ajang seni.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge-akreditasi">Teknologi</span>
+                    <h4>Simulator Pembangkit Listrik</h4>
+                    <p>Menerima bantuan alat praktik PLTMH dan PLTB canggih dari PT PLN.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <span class="badge-akreditasi">Profesional</span>
+                    <h4>Sertifikasi Kompetensi</h4>
+                    <p>Menyelenggarakan sertifikasi uji kompetensi standar industri bagi siswa dan guru.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HALAMAN JURUSAN -->
+    <section id="jurusan">
+        <h2>Jurusan Kami</h2>
+        <div class="grid">
+            <div class="card"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=500&q=80" alt="TKJ"><div class="card-body"><h3>TKJ</h3></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=500&q=80" alt="TE"><div class="card-body"><h3>TE</h3></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=500&q=80" alt="TET"><div class="card-body"><h3>TET</h3></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=500&q=80" alt="MPLB"><div class="card-body"><h3>MPLB</h3></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=500&q=80" alt="Busana"><div class="card-body"><h3>Busana</h3></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80" alt="Perhotelan"><div class="card-body"><h3>Perhotelan</h3></div></div>
+        </div>
+    </section>
+
+    <!-- HALAMAN FASILITAS -->
+    <section id="fasilitas">
+        <h2>Fasilitas</h2>
+        <div class="grid">
+            <div class="card"><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=500&q=80" alt="Aula"><div class="card-body"><h3>Aula</h3></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=500&q=80" alt="Voli"><div class="card-body"><h3>Lapangan Volly</h3></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=500&q=80" alt="Perpus"><div class="card-body"><h3>Perpustakaan</h3></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=500&q=80" alt="Podcast"><div class="card-body"><h3>Podcast</h3></div></div>
+        </div>
+    </section>
+    
+    
+    
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SMKN 2 SOE | Terakreditasi A</p>
+    </footer>
+
+    <script>
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash || '#home';
+            document.querySelectorAll('section').forEach(s => s.style.display = 'none');
+            const target = document.querySelector(hash);
+            if(target) {
+                target.style.display = 'block';
+                window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
